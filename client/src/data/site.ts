@@ -57,6 +57,39 @@ export const CONTACT = {
 };
 
 /* ------------------------------------------------------------------ */
+/*  Offices — multi-location contact details                          */
+/*  NOTE: addresses & phone numbers below are PLACEHOLDER values —     */
+/*  replace with real details. Marked for easy find-and-replace.       */
+/* ------------------------------------------------------------------ */
+export interface OfficeLocation {
+  city: string;
+  country: string;
+  address: string;
+  phone: string;
+}
+
+export const OFFICE_LOCATIONS: OfficeLocation[] = [
+  {
+    city: 'Delhi',
+    country: 'India',
+    address: 'B-42, Connaught Place, New Delhi 110001, India', // PLACEHOLDER
+    phone: '+91 98765 43210', // PLACEHOLDER
+  },
+  {
+    city: 'Patna',
+    country: 'India',
+    address: '3rd Floor, Boring Road, Patna 800001, Bihar, India', // PLACEHOLDER
+    phone: '+91 91234 56789', // PLACEHOLDER
+  },
+  {
+    city: 'USA',
+    country: 'United States',
+    address: '440 N Wolfe Rd, Sunnyvale, CA 94085, USA', // PLACEHOLDER
+    phone: '+1 (415) 555-0142', // PLACEHOLDER
+  },
+];
+
+/* ------------------------------------------------------------------ */
 /*  Home — statistics (configurable — swap with real numbers)          */
 /* ------------------------------------------------------------------ */
 export const STATS: Stat[] = [

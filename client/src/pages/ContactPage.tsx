@@ -1,7 +1,7 @@
 import { Mail, MapPin, Phone } from 'lucide-react';
 import { InquiryForm } from '../components/forms/InquiryForm';
 import { PageHero } from '../components/ui/PageHero';
-import { CONTACT } from '../data/site';
+import { CONTACT, OFFICE_LOCATIONS } from '../data/site';
 import { useSEO } from '../hooks/useSEO';
 
 export default function ContactPage() {
@@ -46,17 +46,30 @@ export default function ContactPage() {
                   <Mail className="h-4 w-4" aria-hidden="true" />
                   {CONTACT.email}
                 </a>
-                <a
-                  href={`tel:${CONTACT.phone.replace(/\s/g, '')}`}
-                  className="mt-3 inline-flex items-center gap-2 font-mono text-sm text-mist/70 transition-colors hover:text-signal"
-                >
-                  <Phone className="h-4 w-4" aria-hidden="true" />
-                  {CONTACT.phone}
-                </a>
-                <p className="mt-3 flex items-center gap-2 font-mono text-sm text-ash">
-                  <MapPin className="h-4 w-4" aria-hidden="true" />
-                  {CONTACT.location}
-                </p>
+              </div>
+
+              <div className="rounded-2xl border border-ink-line bg-ink-raised p-8">
+                <h2 className="font-mono text-[10px] uppercase tracking-widest text-signal">Our offices</h2>
+                <div className="mt-6 space-y-6">
+                  {OFFICE_LOCATIONS.map((office) => (
+                    <div key={office.city} className="border-l-2 border-ink-line pl-4">
+                      <p className="font-display text-sm font-semibold text-mist">
+                        {office.city}, {office.country}
+                      </p>
+                      <p className="mt-2 flex items-start gap-2 text-sm leading-relaxed text-ash">
+                        <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-signal" aria-hidden="true" />
+                        {office.address}
+                      </p>
+                      <a
+                        href={`tel:${office.phone.replace(/\s/g, '')}`}
+                        className="mt-2 inline-flex items-center gap-2 text-sm text-mist/70 transition-colors hover:text-signal"
+                      >
+                        <Phone className="h-4 w-4 shrink-0" aria-hidden="true" />
+                        {office.phone}
+                      </a>
+                    </div>
+                  ))}
+                </div>
               </div>
 
               <div className="rounded-2xl border border-ink-line bg-ink-raised p-8">

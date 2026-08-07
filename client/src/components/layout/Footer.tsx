@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, MapPin, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { EASE } from '../../animations/variants';
 import {
@@ -7,6 +7,7 @@ import {
   FOOTER_LINKS,
   FOOTER_SERVICES,
   LEGAL_LINKS,
+  OFFICE_LOCATIONS,
   SOCIAL_LINKS,
 } from '../../data/site';
 import { Logo } from './Logo';
@@ -37,9 +38,22 @@ export function Footer() {
               {CONTACT.email}
               <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
             </a>
+            <div className="mt-6 flex flex-wrap gap-x-4 gap-y-2">
+              {SOCIAL_LINKS.map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="font-mono text-[10px] uppercase tracking-widest text-ash transition-colors hover:text-signal"
+                >
+                  {s.label}
+                </a>
+              ))}
+            </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-10 sm:grid-cols-3 lg:col-span-7">
+          <div className="grid grid-cols-2 gap-10 lg:col-span-7">
             <nav aria-label="Footer — explore">
               <FooterColumnTitle>Explore</FooterColumnTitle>
               <ul className="mt-5 space-y-3">
@@ -56,35 +70,36 @@ export function Footer() {
                 ))}
               </ul>
             </nav>
-            <div>
-              <FooterColumnTitle>Contact</FooterColumnTitle>
-              <div className="mt-5 space-y-1 text-sm leading-relaxed text-ash">
-                <p>{CONTACT.location}</p>
-                <p>
-                  <a href={`tel:${CONTACT.phone.replace(/\s/g, '')}`} className="transition-colors hover:text-mist">
-                    {CONTACT.phone}
-                  </a>
+          </div>
+        </div>
+
+        {/* Offices */}
+        <div className="mt-16 border-t border-ink-line pt-10">
+          <FooterColumnTitle>Offices</FooterColumnTitle>
+          <div className="mt-6 grid gap-10 sm:grid-cols-3 sm:divide-x sm:divide-ink-line">
+            {OFFICE_LOCATIONS.map((office) => (
+              <div key={office.city} className="sm:pl-10 sm:first:pl-0">
+                <p className="font-display text-base font-medium text-mist">
+                  {office.city}, {office.country}
                 </p>
+                <p className="mt-3 flex items-start gap-2 text-sm leading-relaxed text-ash">
+                  <MapPin className="mt-0.5 h-3.5 w-3.5 shrink-0 text-signal" aria-hidden="true" />
+                  {office.address}
+                </p>
+                <a
+                  href={`tel:${office.phone.replace(/\s/g, '')}`}
+                  className="mt-2 inline-flex items-center gap-2 text-sm text-mist/70 transition-colors hover:text-signal"
+                >
+                  <Phone className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
+                  {office.phone}
+                </a>
               </div>
-              <div className="mt-5 flex flex-wrap gap-x-4 gap-y-2">
-                {SOCIAL_LINKS.map((s) => (
-                  <a
-                    key={s.label}
-                    href={s.href}
-                    target="_blank"
-                    rel="noreferrer noopener"
-                    className="font-mono text-[10px] uppercase tracking-widest text-ash transition-colors hover:text-signal"
-                  >
-                    {s.label}
-                  </a>
-                ))}
-              </div>
-            </div>
+            ))}
           </div>
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-20 flex flex-col items-start justify-between gap-4 border-t border-ink-line pt-6 md:flex-row md:items-center">
+        <div className="mt-14 flex flex-col items-start justify-between gap-4 border-t border-ink-line pt-6 md:flex-row md:items-center">
           <p className="font-mono text-[10px] uppercase tracking-widest text-ash">
             © {new Date().getFullYear()} KYNYX — Digital Technology Agency
           </p>
