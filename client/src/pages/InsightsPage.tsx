@@ -67,17 +67,24 @@ export default function InsightsPage() {
             <motion.article key={insight.slug} variants={fadeUp} custom={i}>
               <Link
                 to={`/insights/${insight.slug}`}
-                className="group flex h-full flex-col overflow-hidden rounded-2xl border border-ink-line bg-ink-raised transition-colors duration-500 hover:border-signal/40"
+                className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-ink-line bg-ink-raised shadow-card transition-all duration-500 hover:-translate-y-1.5 hover:border-signal/40 hover:shadow-glow"
               >
-                <div className="aspect-[16/9] overflow-hidden">
-                  <div className="h-full w-full transition-transform duration-700 group-hover:scale-105">
+                <div className="relative aspect-[16/9] overflow-hidden">
+                  <div className="h-full w-full transition-transform duration-700 ease-out group-hover:scale-105">
                     <InsightCover category={insight.category} palette={insight.palette} index={i} />
                   </div>
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink-raised via-ink-raised/10 to-transparent opacity-60 transition-opacity duration-500 group-hover:opacity-90" />
+                  <span className="absolute left-4 top-4 rounded-full border border-white/10 bg-ink/60 px-3 py-1.5 font-mono text-[10px] uppercase tracking-widest text-mist/90 backdrop-blur-sm">
+                    {insight.category}
+                  </span>
+                  <span className="absolute bottom-4 right-4 flex h-11 w-11 translate-y-2 items-center justify-center rounded-full bg-signal text-ink opacity-0 shadow-glow transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
+                    <ArrowUpRight className="h-5 w-5" aria-hidden="true" />
+                  </span>
                 </div>
                 <div className="flex flex-1 flex-col p-6">
                   <div className="flex items-center justify-between">
-                    <span className="font-mono text-[10px] uppercase tracking-widest text-signal">
-                      {insight.category}
+                    <span className="font-mono text-[10px] uppercase tracking-widest text-ash">
+                      {formatDate(insight.date)}
                     </span>
                     <span className="font-mono text-[10px] uppercase tracking-widest text-ash">
                       {readingTime(insight.body.join(' ').split(' ').length)}
@@ -87,12 +94,10 @@ export default function InsightsPage() {
                     {insight.title}
                   </h2>
                   <p className="mt-3 flex-1 text-sm leading-relaxed text-ash">{insight.description}</p>
-                  <div className="mt-6 flex items-center justify-between border-t border-ink-line pt-4">
-                    <span className="font-mono text-[10px] uppercase tracking-widest text-ash">
-                      {formatDate(insight.date)}
-                    </span>
+                  <div className="mt-6 flex items-center gap-2 border-t border-ink-line pt-4 font-mono text-[11px] font-semibold uppercase tracking-widest text-signal">
+                    Read article
                     <ArrowUpRight
-                      className="h-4 w-4 text-ash transition-all duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-signal"
+                      className="h-3.5 w-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
                       aria-hidden="true"
                     />
                   </div>
