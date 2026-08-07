@@ -1,0 +1,24 @@
+# KYNYX — local infrastructure
+# Spin up MongoDB for the API with a single command:
+#
+#   docker compose up -d
+#
+# Then set MONGODB_URI=mongodb://localhost:27017/kynyx in server/.env
+# and restart the API. Inquiries will now persist to MongoDB.
+services:
+  mongo:
+    image: mongo:7
+    container_name: kynyx-mongo
+    restart: unless-stopped
+    ports:
+      - '27017:27017'
+    volumes:
+      - kynyx-mongo-data:/data/db
+    healthcheck:
+      test: ['CMD', 'mongosh', '--quiet', '--eval', 'db.adminCommand("ping").ok']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  kynyx-mongo-data:

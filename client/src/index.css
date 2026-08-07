@@ -1,0 +1,155 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ------------------------------------------------------------------ */
+/*  KYNYX design tokens                                                */
+/* ------------------------------------------------------------------ */
+:root {
+  --bg: #08080b;
+  --fg: #f4f4f1;
+  --muted: #8e8e98;
+  --accent: #c6ff3e;
+  --line: #232329;
+  --nav-h: 84px;
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  @apply bg-ink text-mist font-sans antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
+}
+
+::selection {
+  background: var(--accent);
+  color: #08080b;
+}
+
+/* Thin, unobtrusive scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #08080b;
+}
+::-webkit-scrollbar-thumb {
+  background: #26262c;
+  border-radius: 999px;
+  border: 2px solid #08080b;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3a3a42;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Utilities                                                          */
+/* ------------------------------------------------------------------ */
+@layer utilities {
+  /* Film-grain overlay */
+  .grain::after {
+    content: '';
+    position: fixed;
+    inset: -100%;
+    z-index: 90;
+    pointer-events: none;
+    opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    animation: grain-shift 0.9s steps(4) infinite;
+  }
+
+  @keyframes grain-shift {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(-2%, 3%); }
+    50% { transform: translate(3%, -2%); }
+    75% { transform: translate(-3%, -3%); }
+    100% { transform: translate(2%, 2%); }
+  }
+
+  /* Hairline divider */
+  .hairline {
+    @apply border-ink-line;
+  }
+
+  /* Outlined display text (used sparingly) */
+  .text-outline {
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(244, 244, 241, 0.28);
+  }
+
+  /* Hide scrollbar (marquees) */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .mask-fade-x {
+    -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/*  Focus visibility (accessibility)                                   */
+/* ------------------------------------------------------------------ */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Hide custom cursor affordances on touch devices */
+@media (hover: none) {
+  .cursor-dot,
+  .cursor-ring,
+  .cursor-label {
+    display: none !important;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/*  Reduced motion — kill decorative animation                         */
+/* ------------------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/*  Typography helpers                                                 */
+/* ------------------------------------------------------------------ */
+.fluid-hero {
+  font-size: clamp(2.6rem, 7.2vw, 7.5rem);
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+}
+.fluid-h2 {
+  font-size: clamp(2rem, 4.6vw, 4.4rem);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+}
+.fluid-h3 {
+  font-size: clamp(1.5rem, 2.6vw, 2.4rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
