@@ -101,7 +101,8 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="mt-14 flex flex-col items-start justify-between gap-4 border-t border-ink-line pt-6 md:flex-row md:items-center">
           <p className="font-mono text-[10px] uppercase tracking-widest text-ash">
-            © {new Date().getFullYear()} KYNYX — Digital Technology Agency
+            {/* © {new Date().getFullYear()} KYNYX — Digital Technology Agency */}
+            © 2025 KYNYX — Digital Technology Agency
           </p>
           <div className="flex flex-wrap gap-x-6 gap-y-2">
             {LEGAL_LINKS.map((l) => (
