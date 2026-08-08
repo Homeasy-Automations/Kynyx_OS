@@ -61,19 +61,8 @@ export const services: Service[] = [
     icon: 'gauge',
   },
   {
-    slug: 'ai-automation',
-    number: '06',
-    name: 'AI Automation & Integrations',
-    short: 'Workflows that run themselves while you scale.',
-    description:
-      'We connect your tools and let AI handle the repetitive work — lead routing, reporting, document processing, support triage. Automations that save hundreds of hours a month.',
-    tech: ['n8n', 'Zapier', 'OpenAI', 'APIs', 'Webhooks', 'CRM Integration'],
-    deliverables: ['Workflow automation', 'Tool integrations', 'AI agents', 'Ops pipelines'],
-    icon: 'zap',
-  },
-  {
     slug: 'web-crawlers',
-    number: '07',
+    number: '06',
     name: 'Web Crawlers & Data Extraction',
     short: 'Reliable data pipelines for the world wide web.',
     description:
@@ -84,7 +73,7 @@ export const services: Service[] = [
   },
   {
     slug: 'data-solutions',
-    number: '08',
+    number: '07',
     name: 'Database Management & Data Handling',
     short: 'Data that is structured, secure and instantly useful.',
     description:
@@ -95,7 +84,7 @@ export const services: Service[] = [
   },
   {
     slug: 'tech-support',
-    number: '09',
+    number: '08',
     name: 'Customer Technology Support',
     short: '24/7 support that protects the experience you built.',
     description:
@@ -103,6 +92,17 @@ export const services: Service[] = [
     tech: ['SLA Monitoring', 'Helpdesk', 'Incident Response', 'Sentry', 'Status Pages'],
     deliverables: ['Dedicated support', 'Monitoring & alerts', 'Incident handling', 'User assistance'],
     icon: 'headset',
+  },
+  {
+    slug: 'ai-automation',
+    number: '09',
+    name: 'AI Automation & Integrations',
+    short: 'Workflows that run themselves while you scale.',
+    description:
+      'We connect your tools and let AI handle the repetitive work — lead routing, reporting, document processing, support triage. Automations that save hundreds of hours a month.',
+    tech: ['n8n', 'Zapier', 'OpenAI', 'APIs', 'Webhooks', 'CRM Integration'],
+    deliverables: ['Workflow automation', 'Tool integrations', 'AI agents', 'Ops pipelines'],
+    icon: 'zap',
   },
   {
     slug: 'ai-insights',
@@ -126,10 +126,32 @@ export const services: Service[] = [
     deliverables: ['RAG systems', 'AI agents', 'LLM applications', 'Fine-tuned models'],
     icon: 'sparkles',
   },
-
+    {
+    slug: 'agentic-ai',
+    number: '12',
+    name: 'Agentic AI Solutions',
+    short: 'AI agents that think, plan, and execute tasks autonomously.',
+    description:
+      'Build intelligent AI agents powered by LLMs that automate workflows, make decisions, retrieve knowledge using RAG, and integrate across your business systems.',
+    tech: [
+      'OpenAI',
+      'Claude',
+      'LangChain',
+      'RAG',
+      'Vector Databases',
+      'AI Agents',
+    ],
+    deliverables: [
+      'AI agents',
+      'RAG systems',
+      'Knowledge assistants',
+      'Business automation',
+    ],
+    icon: 'bot',
+  },
   {
     slug: 'digital-transformation',
-    number: '12',
+    number: '13',
     name: 'Digital Transformation',
     short: 'Modernize your business with scalable digital solutions.',
     description:
@@ -152,7 +174,7 @@ export const services: Service[] = [
   },
   {
     slug: 'cloud-infrastructure',
-    number: '13',
+    number: '14',
     name: 'Cloud & Infrastructure',
     short: 'Secure, scalable cloud infrastructure built for growth.',
     description:
@@ -175,7 +197,7 @@ export const services: Service[] = [
   },
   {
     slug: 'api-development',
-    number: '14',
+    number: '15',
     name: 'API Development & Integrations',
     short: 'Connect your products, platforms, and services seamlessly.',
     description:
@@ -198,7 +220,7 @@ export const services: Service[] = [
   },
   {
     slug: 'devops-cicd',
-    number: '15',
+    number: '16',
     name: 'DevOps & CI/CD',
     short: 'Automated deployments with reliability built in.',
     description:
@@ -221,7 +243,7 @@ export const services: Service[] = [
   },
   {
     slug: 'cybersecurity',
-    number: '16',
+    number: '17',
     name: 'Cybersecurity & Compliance',
     short: 'Protect your business with enterprise-grade security.',
     description:
@@ -244,7 +266,7 @@ export const services: Service[] = [
   },
   {
     slug: 'amc-support',
-    number: '17',
+    number: '18',
     name: 'AMC & Technical Support',
     short: 'Long-term maintenance that keeps your platform performing.',
     description:
@@ -264,29 +286,6 @@ export const services: Service[] = [
       'Priority support',
     ],
     icon: 'life-buoy',
-  },
-  {
-    slug: 'agentic-ai',
-    number: '18',
-    name: 'Agentic AI Solutions',
-    short: 'AI agents that think, plan, and execute tasks autonomously.',
-    description:
-      'Build intelligent AI agents powered by LLMs that automate workflows, make decisions, retrieve knowledge using RAG, and integrate across your business systems.',
-    tech: [
-      'OpenAI',
-      'Claude',
-      'LangChain',
-      'RAG',
-      'Vector Databases',
-      'AI Agents',
-    ],
-    deliverables: [
-      'AI agents',
-      'RAG systems',
-      'Knowledge assistants',
-      'Business automation',
-    ],
-    icon: 'bot',
   },
 ];
 
