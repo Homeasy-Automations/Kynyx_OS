@@ -40,12 +40,12 @@ export const FOOTER_SERVICES: NavLink[] = [
 export const SOCIAL_LINKS = [
   {
     label: 'LinkedIn',
-    href: 'https://www.linkedin.com',
+    href: 'https://www.linkedin.com/company/kynyxsolutions?trk=public_profile_topcard-current-company',
     icon: 'linkedin',
   },
   {
     label: 'Instagram',
-    href: 'https://www.instagram.com',
+    href: 'https://www.instagram.com/kynyxsolutions/',
     icon: 'instagram',
   },
   {
@@ -55,7 +55,7 @@ export const SOCIAL_LINKS = [
   },
   {
     label: 'GitHub',
-    href: 'https://github.com',
+    href: 'https://github.com/Homeasy-Automations',
     icon: 'github',
   },
 ];
@@ -67,8 +67,8 @@ export const LEGAL_LINKS: NavLink[] = [
 ];
 
 export const CONTACT = {
-  email: 'hello@kynyx.agency',
-  phone: '+91 98765 43210',
+  email: 'kynyxsolutions@gmail.com',
+  phone: '+91 72097 03999',
   location: 'New Delhi, India — working worldwide',
 };
 
