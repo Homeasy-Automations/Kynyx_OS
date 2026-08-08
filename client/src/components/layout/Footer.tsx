@@ -33,7 +33,7 @@ const SOCIAL_ICONS: Record<string, IconType> = {
 export function Footer() {
   return (
     <footer className="relative overflow-hidden border-t border-ink-line bg-ink-deep">
-      <div className="mx-auto max-w-shell px-5 pb-10 pt-20 md:px-8 lg:px-12">
+      <div className="mx-auto max-w-shell px-5 pb-10 pt-10 md:px-8 lg:px-12">
         {/* Top row */}
         <div className="grid gap-14 lg:grid-cols-12">
           <div className="lg:col-span-5">
@@ -47,7 +47,7 @@ export function Footer() {
             </p>
             <a
               href={`mailto:${CONTACT.email}`}
-              className="mt-8 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-signal transition-opacity hover:opacity-80"
+              className="mt-6 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-signal transition-opacity hover:opacity-80"
             >
               {CONTACT.email}
               <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
@@ -78,7 +78,7 @@ export function Footer() {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-10 lg:col-span-7">
+          <div className="grid grid-cols-2 gap-8 lg:col-span-7">
             <nav aria-label="Footer — explore">
               <FooterColumnTitle>Explore</FooterColumnTitle>
               <ul className="mt-5 space-y-3">
@@ -99,7 +99,7 @@ export function Footer() {
         </div>
 
         {/* Offices */}
-        <div className="mt-16 border-t border-ink-line pt-10">
+        <div className="mt-8 border-t border-ink-line pt-6">
           <FooterColumnTitle>Offices</FooterColumnTitle>
           <div className="mt-6 grid gap-10 sm:grid-cols-3 sm:divide-x sm:divide-ink-line">
             {OFFICE_LOCATIONS.map((office) => (
@@ -124,7 +124,7 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-14 flex flex-col items-start justify-between gap-4 border-t border-ink-line pt-6 md:flex-row md:items-center">
+        <div className="mt-6 flex flex-col items-start justify-between gap-4 border-t border-ink-line pt-4 md:flex-row md:items-center">
           <p className="font-mono text-[10px] uppercase tracking-widest text-ash">
             {/* © {new Date().getFullYear()} KYNYX — Digital Technology Agency */}
             © 2025 KYNYX — Digital Technology Agency
