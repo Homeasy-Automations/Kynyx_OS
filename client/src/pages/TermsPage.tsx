@@ -3,32 +3,40 @@ import { useSEO } from '../hooks/useSEO';
 
 const SECTIONS = [
   {
-    title: '1. Agreement',
-    body: 'By accessing kynyx.agency you agree to these terms. If you are engaging KYNYX for services, the specific engagement agreement governs that work; these terms cover the website itself.',
+    title: '1. Agreement to terms',
+    body: 'These Terms of Service constitute a legally binding agreement made between you, whether personally or on behalf of an entity ("you") and Kynyx Solutions LLC ("we," "us," or "our"), concerning your access to and use of the kynyx.com website as well as any other media form, media channel, mobile website or mobile application related, linked, or otherwise connected thereto (collectively, the "Site"). You agree that by accessing the Site, you have read, understood, and agreed to be bound by all of these Terms of Service. If you do not agree with all of these terms, then you are expressly prohibited from using the Site.',
   },
   {
-    title: '2. Use of the site',
-    body: 'You may browse the site freely. You may not scrape, reverse-engineer, or misuse its content for commercial purposes without written permission. Content is provided for information about KYNYX and its capabilities.',
+    title: '2. Intellectual property rights',
+    body: 'Unless otherwise indicated, the Site is our proprietary property and all source code, databases, functionality, software, website designs, audio, video, text, photographs, and graphics (collectively, the "Content") and the trademarks, service marks, and logos ("Marks") are owned or licensed by us and protected by copyright, trademark, and unfair competition laws of the United States and international conventions.',
   },
   {
-    title: '3. Intellectual property',
-    body: 'All content — text, design, code and visuals — is the property of KYNYX unless otherwise stated. Case studies shown belong to their respective clients; KYNYX presents them with permission.',
+    title: '3. User representations',
+    body: 'By using the Site, you represent that: you have the legal capacity to comply with these terms; you are not a minor in your jurisdiction; you will not access the Site through automated or non-human means (e.g., bots or scripts); you will not use the Site for any unlawful purpose; and your use will not violate applicable laws or regulations.',
   },
   {
-    title: '4. Inquiries',
-    body: 'Submitting an inquiry does not create a contractual relationship. We review every inquiry but are not obligated to respond or to accept any engagement.',
+    title: '4. Prohibited activities',
+    body: 'You may not use the Site for any purpose other than what we make available. Commercial use not expressly approved by us is prohibited.',
   },
   {
-    title: '5. Limitation of liability',
-    body: 'The site is provided "as is". KYNYX is not liable for indirect or consequential damages arising from use of the site. Nothing in these terms limits liability that cannot be limited by law.',
+    title: '5. Governing law',
+    body: 'These terms are governed by the laws of the State of Delaware, without regard to its conflict of law principles. Disputes will be resolved in Delaware courts.',
   },
   {
-    title: '6. Changes',
-    body: 'We may update these terms as the site evolves. Material changes will be reflected here with an updated date.',
+    title: '6. Disclaimer',
+    body: 'The Site is provided "as is" and "as available." Your use is at your sole risk. We disclaim all warranties, express or implied, including merchantability, fitness for a particular purpose, and non-infringement.',
   },
   {
-    title: '7. Contact',
-    body: 'Questions about these terms? Email hello@kynyx.agency.',
+    title: '7. Limitation of liability',
+    body: 'In no event shall we be liable for any indirect, incidental, consequential, exemplary, or special damages, including lost profits, even if advised of such possibility.',
+  },
+  {
+    title: '8. Indemnification',
+    body: 'You agree to indemnify and hold us harmless from any loss or damages arising from your use of the Site, violation of these Terms, or infringement of third-party rights.',
+  },
+  {
+    title: '9. Contact us',
+    body: 'To resolve complaints or request more information about these Terms, contact us at info@kynyx.com, or write to us at any of our offices: The Green, Suite A, Dover, DE 19901, United States · 9th Floor, Logix Cyber Park, Tower-C, Sec-62, Noida, U.P 201309, India · 5th Floor, Mauryalok Complex, A-Block, Patna 800001, Bihar, India.',
   },
 ];
 
@@ -58,7 +66,7 @@ export default function TermsPage() {
           ))}
         </div>
         <p className="mt-16 border-t border-ink-line pt-6 text-xs text-ash-deep">
-          Last updated: 6 August 2026
+          Last updated: 30 July 2025
         </p>
       </section>
     </>

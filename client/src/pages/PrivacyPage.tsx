@@ -5,37 +5,52 @@ const SECTIONS = [
   {
     id: 'overview',
     title: 'Overview',
-    body: 'KYNYX ("we", "us") respects your privacy. This policy explains what we collect when you use kynyx.agency and how we use it. We keep data collection minimal and purposeful.',
+    body: 'Welcome to Kynyx Solutions LLC ("Kynyx," "we," "us," or "our"). This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website kynyx.com (the "Site"). Please read this privacy policy carefully. If you do not agree with the terms of this privacy policy, please do not access the Site.',
   },
   {
     id: 'data',
-    title: 'What we collect',
-    body: 'When you submit a project inquiry we collect the details you provide: name, email, phone, company, website, services of interest, project description, budget and timeline. We also record basic technical data such as IP address for abuse prevention and analytics, where legally appropriate.',
+    title: 'Information we collect',
+    body: 'Personal data you provide to us: such as your name, email address, telephone number, and other details you submit via contact forms. Information we collect automatically: includes your IP address, browser type, operating system, access times, and viewed pages. Cookies and tracking technologies: used to enhance user experience; browser settings may allow disabling them but could affect functionality.',
   },
   {
     id: 'use',
-    title: 'How we use it',
-    body: 'We use inquiry data solely to respond to you and evaluate a potential engagement. We do not sell your data. We do not use it for marketing unless you opt in.',
+    title: 'How we use your information',
+    body: 'We use your information to provide a smooth, efficient, and customized experience. Specifically, we may use it to respond to your inquiries and provide requested services, deliver targeted advertising, coupons, newsletters, and promotions, monitor and improve our website and services, and prevent fraud and protect against criminal activity.',
   },
   {
-    id: 'storage',
-    title: 'Storage & security',
-    body: 'Inquiries are stored in a secured database with access limited to the KYNYX team. We apply industry-standard safeguards including encrypted transport and least-privilege access.',
+    id: 'disclosure',
+    title: 'Disclosure of your information',
+    body: 'We do not sell or trade your personal information. We may share it in cases such as: by law or to protect rights — in response to legal processes or to protect others; and third-party service providers — for operations like data analysis or hosting.',
   },
   {
-    id: 'cookies',
-    title: 'Cookies',
-    body: 'We use only essential cookies required for the site to function (such as storing your session preferences). We do not use third-party advertising cookies on this site.',
+    id: 'security',
+    title: 'Data security',
+    body: 'We use administrative, technical, and physical safeguards to protect your data. However, no method of transmission over the internet is 100% secure.',
   },
   {
-    id: 'rights',
-    title: 'Your rights',
-    body: 'You may request access to, correction of, or deletion of your personal data at any time by emailing hello@kynyx.agency. We respond to all legitimate requests within 30 days.',
+    id: 'state-rights',
+    title: 'Your state privacy rights',
+    body: 'We comply with applicable U.S. state privacy laws. For example, California residents have the right under CCPA to know the personal information we collect, request deletion of personal information, and opt out of data sale (note: Kynyx does not sell personal info). To exercise these rights, contact us using the info below. We will not discriminate against you for exercising your rights.',
+  },
+  {
+    id: 'dnt',
+    title: 'Do-Not-Track signals',
+    body: 'Currently, we do not respond to Do-Not-Track (DNT) browser signals or similar mechanisms.',
+  },
+  {
+    id: 'children',
+    title: "Children's privacy",
+    body: 'Our Site is not intended for children under 13. We do not knowingly collect personal data from them. If we learn we have done so, we will delete it immediately.',
+  },
+  {
+    id: 'changes',
+    title: 'Changes to this privacy policy',
+    body: 'We may update this policy from time to time. Updates will be posted on this page, so please review it periodically.',
   },
   {
     id: 'contact',
-    title: 'Contact',
-    body: 'Questions about this policy? Email hello@kynyx.agency — we are happy to talk through it.',
+    title: 'Contact us',
+    body: 'If you have questions or comments about this Privacy Policy, please contact us at info@kynyx.com, or write to us at any of our offices: The Green, Suite A, Dover, DE 19901, United States · 9th Floor, Logix Cyber Park, Tower-C, Sec-62, Noida, U.P 201309, India · 5th Floor, Mauryalok Complex, A-Block, Patna 800001, Bihar, India.',
   },
 ];
 
@@ -68,7 +83,7 @@ export default function PrivacyPage() {
           ))}
         </div>
         <p className="mt-16 border-t border-ink-line pt-6 text-xs text-ash-deep">
-          Last updated: 6 August 2026
+          Last updated: 30 July 2025
         </p>
       </section>
     </>

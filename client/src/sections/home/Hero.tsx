@@ -5,6 +5,7 @@ import { FloatingAIField } from '../../components/effects/FloatingAIField';
 import { ParticleField } from '../../components/effects/ParticleField';
 import { Button } from '../../components/ui/Button';
 import { WordReveal } from '../../components/ui/WordReveal';
+import { useAppReady } from '../../context/AppReadyContext';
 import { usePrefersReducedMotion } from '../../hooks/usePrefersReducedMotion';
 
 /**
@@ -15,6 +16,7 @@ import { usePrefersReducedMotion } from '../../hooks/usePrefersReducedMotion';
  */
 export function Hero() {
   const reduced = usePrefersReducedMotion();
+  const ready = useAppReady();
   const { scrollY } = useScroll();
   const yFg = useTransform(scrollY, [0, 600], [0, 120]);
   const opacity = useTransform(scrollY, [0, 500], [1, 0]);
@@ -36,8 +38,10 @@ export function Hero() {
       />
       <ParticleField className="absolute inset-0 h-full w-full opacity-70" />
 
-      {/* Free-floating AI/data motif — drifts on its own, recoils from the cursor */}
-      {!reduced && <FloatingAIField />}
+      {/* Free-floating AI/data motif — drifts on its own, recoils from the cursor.
+          Gated on `ready` (loader finished) so its entrance plays visibly on first
+          load too, instead of running out unseen underneath the loader. */}
+      {!reduced && ready && <FloatingAIField />}
 
       {/* Content */}
       <motion.div

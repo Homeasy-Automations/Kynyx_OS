@@ -2,6 +2,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { lazy, Suspense, useEffect, useState } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import { pageVariants } from '../../animations/variants';
+import { AppReadyProvider } from '../../context/AppReadyContext';
 import { CustomCursor } from '../effects/CustomCursor';
 import { Loader } from '../effects/Loader';
 import { Footer } from './Footer';
@@ -50,45 +51,47 @@ export function AppShell() {
   }, [menuOpen]);
 
   return (
-    <div className="grain relative min-h-screen bg-ink">
-      <AnimatePresence>{loading && <Loader key="loader" onDone={handleLoaderDone} />}</AnimatePresence>
+    <AppReadyProvider value={!loading}>
+      <div className="grain relative min-h-screen bg-ink">
+        <AnimatePresence>{loading && <Loader key="loader" onDone={handleLoaderDone} />}</AnimatePresence>
 
-      <ScrollToTop />
-      <CustomCursor />
-      <Navbar onMenuOpen={() => setMenuOpen(true)} />
-      <MobileMenu open={menuOpen} onClose={() => setMenuOpen(false)} />
+        <ScrollToTop />
+        <CustomCursor />
+        <Navbar onMenuOpen={() => setMenuOpen(true)} />
+        <MobileMenu open={menuOpen} onClose={() => setMenuOpen(false)} />
 
-      <main id="main">
-        <AnimatePresence mode="wait" initial={false}>
-          <motion.div
-            key={location.pathname}
-            variants={pageVariants}
-            initial="initial"
-            animate="enter"
-            exit="exit"
-            className="min-h-screen"
-          >
-            <Suspense fallback={<PageFallback />}>
-              <Routes location={location}>
-                <Route path="/" element={<HomePage />} />
-                <Route path="/services" element={<ServicesPage />} />
-                <Route path="/services/:slug" element={<ServiceDetailPage />} />
-                <Route path="/work" element={<WorkPage />} />
-                <Route path="/work/:slug" element={<CaseStudyPage />} />
-                <Route path="/about" element={<AboutPage />} />
-                <Route path="/insights" element={<InsightsPage />} />
-                <Route path="/insights/:slug" element={<InsightDetailPage />} />
-                <Route path="/contact" element={<ContactPage />} />
-                <Route path="/privacy" element={<PrivacyPage />} />
-                <Route path="/terms" element={<TermsPage />} />
-                <Route path="*" element={<NotFoundPage />} />
-              </Routes>
-            </Suspense>
-          </motion.div>
-        </AnimatePresence>
-      </main>
+        <main id="main">
+          <AnimatePresence mode="wait" initial={false}>
+            <motion.div
+              key={location.pathname}
+              variants={pageVariants}
+              initial="initial"
+              animate="enter"
+              exit="exit"
+              className="min-h-screen"
+            >
+              <Suspense fallback={<PageFallback />}>
+                <Routes location={location}>
+                  <Route path="/" element={<HomePage />} />
+                  <Route path="/services" element={<ServicesPage />} />
+                  <Route path="/services/:slug" element={<ServiceDetailPage />} />
+                  <Route path="/work" element={<WorkPage />} />
+                  <Route path="/work/:slug" element={<CaseStudyPage />} />
+                  <Route path="/about" element={<AboutPage />} />
+                  <Route path="/insights" element={<InsightsPage />} />
+                  <Route path="/insights/:slug" element={<InsightDetailPage />} />
+                  <Route path="/contact" element={<ContactPage />} />
+                  <Route path="/privacy" element={<PrivacyPage />} />
+                  <Route path="/terms" element={<TermsPage />} />
+                  <Route path="*" element={<NotFoundPage />} />
+                </Routes>
+              </Suspense>
+            </motion.div>
+          </AnimatePresence>
+        </main>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </AppReadyProvider>
   );
 }
