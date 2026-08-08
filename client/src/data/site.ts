@@ -67,7 +67,7 @@ export const LEGAL_LINKS: NavLink[] = [
 ];
 
 export const CONTACT = {
-  email: 'kynyxsolutions@gmail.com',
+  email: 'info@kynyx.com',
   phone: '+91 72097 03999',
   location: 'New Delhi, India — working worldwide',
 };
@@ -88,7 +88,7 @@ export const OFFICE_LOCATIONS: OfficeLocation[] = [
   {
     city: 'USA',
     country: 'United States',
-    address: 'Kynyx Solutions LLC 8 The Green, Suite A Dover, DE 19901 United States', // PLACEHOLDER
+    address: 'The Green, Suite A Dover, DE 19901, United States', // PLACEHOLDER
     phone: '+1 (239) 450-6273', // PLACEHOLDER
   },
   {

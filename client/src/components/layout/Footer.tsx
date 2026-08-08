@@ -52,30 +52,6 @@ export function Footer() {
               {CONTACT.email}
               <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
             </a>
-            <div className="flex items-center gap-3">
-              {SOCIAL_LINKS.map((social) => {
-                const Icon = SOCIAL_ICONS[social.icon];
-
-                return (
-                  <a
-                    key={social.label}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={social.label}
-                    title={social.label}
-                    className="group flex h-10 w-10 items-center justify-center rounded-full border border-ink-line text-ash transition-all duration-300 hover:border-signal hover:bg-signal hover:text-ink"
-                  >
-                    <span
-                      aria-hidden="true"
-                      className="text-base transition-transform duration-300 group-hover:scale-110"
-                    >
-                      <Icon />
-                    </span>
-                  </a>
-                );
-              })}
-            </div>
           </div>
 
           <div className="grid grid-cols-2 gap-8 lg:col-span-7">
@@ -107,9 +83,21 @@ export function Footer() {
                 <p className="font-display text-base font-medium text-mist">
                   {office.city}, {office.country}
                 </p>
-                <p className="mt-3 flex items-start gap-2 text-sm leading-relaxed text-ash">
-                  <MapPin className="mt-0.5 h-3.5 w-3.5 shrink-0 text-signal" aria-hidden="true" />
-                  {office.address}
+                <p className="mt-3 flex items-start gap-3 text-sm leading-relaxed text-ash">
+                  <MapPin
+                    className="mt-0.5 h-3.5 w-3.5 shrink-0 text-signal"
+                    aria-hidden="true"
+                  />
+
+                  <span>
+                    {office.address.split(' ').slice(0, 6).join(' ')}
+                    {office.address.split(' ').length > 6 && (
+                      <>
+                        <br />
+                        {office.address.split(' ').slice(6).join(' ')}
+                      </>
+                    )}
+                  </span>
                 </p>
                 <a
                   href={`tel:${office.phone.replace(/\s/g, '')}`}
@@ -129,6 +117,31 @@ export function Footer() {
             {/* © {new Date().getFullYear()} KYNYX — Digital Technology Agency */}
             © 2025 KYNYX — Digital Technology Agency
           </p>
+
+          <div className="flex items-center gap-3">
+            {SOCIAL_LINKS.map((social) => {
+              const Icon = SOCIAL_ICONS[social.icon];
+
+              return (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.label}
+                  title={social.label}
+                  className="group flex h-10 w-10 items-center justify-center rounded-full border border-ink-line text-ash transition-all duration-300 hover:border-signal hover:bg-signal hover:text-ink"
+                >
+                  <span
+                    aria-hidden="true"
+                    className="text-base transition-transform duration-300 group-hover:scale-110"
+                  >
+                    <Icon />
+                  </span>
+                </a>
+              );
+            })}
+          </div>
           <div className="flex flex-wrap gap-x-6 gap-y-2">
             {LEGAL_LINKS.map((l) => (
               <Link
