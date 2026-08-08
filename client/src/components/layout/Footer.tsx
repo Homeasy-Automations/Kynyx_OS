@@ -1,5 +1,12 @@
 import { motion } from 'framer-motion';
 import { ArrowUpRight, MapPin, Phone } from 'lucide-react';
+import type { IconType } from 'react-icons';
+import {
+  FaLinkedinIn,
+  FaInstagram,
+  FaGithub,
+} from 'react-icons/fa';
+import { FaXTwitter } from 'react-icons/fa6';
 import { Link } from 'react-router-dom';
 import { EASE } from '../../animations/variants';
 import {
@@ -11,6 +18,13 @@ import {
   SOCIAL_LINKS,
 } from '../../data/site';
 import { Logo } from './Logo';
+
+const SOCIAL_ICONS: Record<string, IconType> = {
+  linkedin: FaLinkedinIn,
+  instagram: FaInstagram,
+  x: FaXTwitter,
+  github: FaGithub,
+};
 
 /**
  * Oversized premium footer: statement, navigation columns, contact info,
@@ -38,18 +52,29 @@ export function Footer() {
               {CONTACT.email}
               <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
             </a>
-            <div className="mt-6 flex flex-wrap gap-x-4 gap-y-2">
-              {SOCIAL_LINKS.map((s) => (
-                <a
-                  key={s.label}
-                  href={s.href}
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  className="font-mono text-[10px] uppercase tracking-widest text-ash transition-colors hover:text-signal"
-                >
-                  {s.label}
-                </a>
-              ))}
+            <div className="flex items-center gap-3">
+              {SOCIAL_LINKS.map((social) => {
+                const Icon = SOCIAL_ICONS[social.icon];
+
+                return (
+                  <a
+                    key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.label}
+                    title={social.label}
+                    className="group flex h-10 w-10 items-center justify-center border border-ink-line text-ash transition-all duration-300 hover:border-signal hover:bg-signal hover:text-ink"
+                  >
+                    <span
+                      aria-hidden="true"
+                      className="text-base transition-transform duration-300 group-hover:scale-110"
+                    >
+                      <Icon />
+                    </span>
+                  </a>
+                );
+              })}
             </div>
           </div>
 

@@ -38,10 +38,26 @@ export const FOOTER_SERVICES: NavLink[] = [
 ];
 
 export const SOCIAL_LINKS = [
-  { label: 'LinkedIn', href: 'https://www.linkedin.com' },
-  { label: 'Instagram', href: 'https://www.instagram.com' },
-  { label: 'X', href: 'https://x.com' },
-  { label: 'GitHub', href: 'https://github.com' },
+  {
+    label: 'LinkedIn',
+    href: 'https://www.linkedin.com',
+    icon: 'linkedin',
+  },
+  {
+    label: 'Instagram',
+    href: 'https://www.instagram.com',
+    icon: 'instagram',
+  },
+  {
+    label: 'X',
+    href: 'https://x.com',
+    icon: 'x',
+  },
+  {
+    label: 'GitHub',
+    href: 'https://github.com',
+    icon: 'github',
+  },
 ];
 
 export const LEGAL_LINKS: NavLink[] = [
