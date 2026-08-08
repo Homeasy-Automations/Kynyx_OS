@@ -7,7 +7,6 @@ interface LoaderProps {
   onDone: () => void;
 }
 
-/** Minimal first-load experience: wordmark + progress line, then curtain lift. */
 export function Loader({ onDone }: LoaderProps) {
   const reduced = usePrefersReducedMotion();
   const [progress, setProgress] = useState(0);
@@ -17,52 +16,102 @@ export function Loader({ onDone }: LoaderProps) {
       onDone();
       return;
     }
+
     const start = performance.now();
-    const duration = 1400;
+
+    // Increase loader duration
+    const duration = 4000;
+
     let raf = 0;
+
     const tick = (now: number) => {
       const t = Math.min(1, (now - start) / duration);
-      // easeOutExpo-ish
-      const eased = t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
-      setProgress(Math.round(eased * 100));
-      if (t < 1) raf = requestAnimationFrame(tick);
-      else setTimeout(onDone, 350);
+
+      // Ease Out Expo
+      const eased =
+        t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+
+      setProgress(eased * 100);
+
+      if (t < 1) {
+        raf = requestAnimationFrame(tick);
+      } else {
+        setTimeout(() => {
+          onDone();
+        }, 800);
+      }
     };
+
     raf = requestAnimationFrame(tick);
+
     return () => cancelAnimationFrame(raf);
   }, [reduced, onDone]);
 
   return (
     <motion.div
       className="fixed inset-0 z-[300] flex flex-col items-center justify-center bg-ink"
-      exit={{ y: '-100%' }}
-      transition={{ duration: 0.7, ease: EASE }}
+      exit={{ y: "-100%" }}
+      transition={{
+        duration: 1,
+        ease: EASE,
+      }}
       aria-hidden="true"
     >
-      <div className="flex items-baseline gap-3 overflow-hidden">
-        {['K', 'Y', 'N', 'Y', 'X'].map((letter, i) => (
+      {/* Logo */}
+      <motion.div
+        animate={{
+          scale: [1, 1.05, 1],
+          opacity: [0.95, 1, 0.95],
+        }}
+        transition={{
+          duration: 2,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="flex"
+      >
+        {["K", "Y", "N", "Y", "X"].map((letter, i) => (
           <motion.span
-            key={i}
-            initial={{ y: 80, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.08 * i, duration: 0.6, ease: EASE }}
+            key={letter + i}
+            initial={{
+              y: 70,
+              opacity: 0,
+              filter: "blur(12px)",
+            }}
+            animate={{
+              y: 0,
+              opacity: 1,
+              filter: "blur(0px)",
+            }}
+            transition={{
+              delay: i * 0.12,
+              duration: 0.8,
+              ease: EASE,
+            }}
             className="font-display text-5xl font-bold tracking-tight text-mist md:text-7xl"
           >
             {letter}
           </motion.span>
         ))}
-      </div>
+      </motion.div>
 
-      <div className="mt-10 w-56">
-        <div className="h-px w-full bg-ink-line">
+      {/* Progress */}
+      <div className="mt-12 w-72">
+        <div className="h-[2px] w-full overflow-hidden rounded-full bg-ink-line">
           <motion.div
-            className="h-px bg-signal"
-            style={{ width: `${progress}%` }}
+            className="h-full rounded-full bg-signal"
+            style={{
+              width: `${progress}%`,
+            }}
           />
         </div>
-        <div className="mt-3 flex justify-between font-mono text-[10px] uppercase tracking-widest text-ash">
-          <span>Loading experience</span>
-          <span className="text-signal">{progress}%</span>
+
+        <div className="mt-4 flex justify-between font-mono text-[11px] uppercase tracking-[0.25em] text-ash">
+          <span>Loading Experience</span>
+
+          <span className="text-signal">
+            {Math.round(progress)}%
+          </span>
         </div>
       </div>
     </motion.div>

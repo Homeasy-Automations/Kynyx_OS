@@ -33,12 +33,11 @@ const NotFoundPage = lazy(() => import('../../pages/NotFoundPage'));
  */
 export function AppShell() {
   const location = useLocation();
-  const [loading, setLoading] = useState(() => sessionStorage.getItem('kynyx-loaded') !== '1');
+  const [loading, setLoading] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
 
   const handleLoaderDone = () => {
     setLoading(false);
-    sessionStorage.setItem('kynyx-loaded', '1');
   };
 
   useEffect(() => {
