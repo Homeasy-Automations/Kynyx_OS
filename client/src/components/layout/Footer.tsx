@@ -64,7 +64,7 @@ export function Footer() {
                     rel="noopener noreferrer"
                     aria-label={social.label}
                     title={social.label}
-                    className="group flex h-10 w-10 items-center justify-center rounded-full border border-ink-line text-ash transition-all duration-300 hover:border-signal hover:bg-signal hover:text-ink"
+                    className="group flex h-10 w-10 items-center justify-center border border-ink-line text-ash transition-all duration-300 hover:border-signal hover:bg-signal hover:text-ink"
                   >
                     <span
                       aria-hidden="true"

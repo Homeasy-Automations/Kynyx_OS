@@ -1,23 +1,15 @@
-import { motion, useMotionValue, useScroll, useSpring, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowDown } from 'lucide-react';
-import { useEffect } from 'react';
 import { EASE, fadeUp, stagger } from '../../animations/variants';
+import { FloatingAIField } from '../../components/effects/FloatingAIField';
 import { ParticleField } from '../../components/effects/ParticleField';
 import { Button } from '../../components/ui/Button';
 import { WordReveal } from '../../components/ui/WordReveal';
 import { usePrefersReducedMotion } from '../../hooks/usePrefersReducedMotion';
 
-const CHIPS = [
-  { label: 'AI', x: 8, y: 22, size: 'text-xs' },
-  { label: 'DATA', x: 82, y: 30, size: 'text-[10px]' },
-  { label: 'LLM', x: 76, y: 68, size: 'text-[10px]' },
-  { label: 'RAG', x: 12, y: 74, size: 'text-[10px]' },
-  { label: 'API', x: 88, y: 52, size: 'text-[10px]' },
-];
-
 /**
- * Hero — 100vh. Particle constellation, oversized headline, parallax label
- * chips and a sequenced entrance:
+ * Hero — 100vh. Particle constellation, floating AI/data motif, oversized
+ * headline and a sequenced entrance:
  * 1 navbar (handled by AppShell) 2 headline words 3 description 4 CTAs
  * 5 background activates 6 scroll indicator.
  */
@@ -26,23 +18,6 @@ export function Hero() {
   const { scrollY } = useScroll();
   const yFg = useTransform(scrollY, [0, 600], [0, 120]);
   const opacity = useTransform(scrollY, [0, 500], [1, 0]);
-
-  const mx = useMotionValue(0);
-  const my = useMotionValue(0);
-  const chipX = useSpring(mx, { stiffness: 40, damping: 20 });
-  const chipY = useSpring(my, { stiffness: 40, damping: 20 });
-
-  useEffect(() => {
-    if (reduced) return;
-    const onMove = (e: MouseEvent) => {
-      const nx = (e.clientX / window.innerWidth - 0.5) * 2;
-      const ny = (e.clientY / window.innerHeight - 0.5) * 2;
-      mx.set(nx * 18);
-      my.set(ny * 18);
-    };
-    window.addEventListener('mousemove', onMove, { passive: true });
-    return () => window.removeEventListener('mousemove', onMove);
-  }, [reduced, mx, my]);
 
   return (
     <section
@@ -61,28 +36,8 @@ export function Hero() {
       />
       <ParticleField className="absolute inset-0 h-full w-full opacity-70" />
 
-      {/* Parallax chips */}
-      {!reduced && (
-        <div className="pointer-events-none absolute inset-0" aria-hidden="true">
-          {CHIPS.map((chip, i) => (
-            <motion.span
-              key={chip.label}
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 1.6 + i * 0.12, duration: 0.6, ease: EASE }}
-              style={{
-                left: `${chip.x}%`,
-                top: `${chip.y}%`,
-                x: chipX,
-                y: chipY,
-              }}
-              className={`absolute hidden rounded-full border border-ink-line bg-ink-raised/70 px-3 py-1.5 font-mono uppercase tracking-widest text-mist/60 backdrop-blur-sm md:inline-block ${chip.size}`}
-            >
-              {chip.label}
-            </motion.span>
-          ))}
-        </div>
-      )}
+      {/* Free-floating AI/data motif — drifts on its own, recoils from the cursor */}
+      {!reduced && <FloatingAIField />}
 
       {/* Content */}
       <motion.div
