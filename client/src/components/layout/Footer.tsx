@@ -81,7 +81,7 @@ export function Footer() {
           <div className="grid grid-cols-2 gap-8 lg:col-span-7">
             <nav aria-label="Footer — explore">
               <FooterColumnTitle>Explore</FooterColumnTitle>
-              <ul className="mt-5 space-y-3">
+              <ul className="mt-4 space-y-3">
                 {FOOTER_LINKS.map((l) => (
                   <FooterLink key={l.to} to={l.to} label={l.label} />
                 ))}
@@ -89,7 +89,7 @@ export function Footer() {
             </nav>
             <nav aria-label="Footer — services">
               <FooterColumnTitle>Services</FooterColumnTitle>
-              <ul className="mt-5 space-y-3">
+              <ul className="mt-4 space-y-3">
                 {FOOTER_SERVICES.map((l) => (
                   <FooterLink key={l.to} to={l.to} label={l.label} />
                 ))}
