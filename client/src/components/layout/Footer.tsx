@@ -115,7 +115,7 @@ export function Footer() {
         <div className="mt-5 flex flex-col items-start justify-between gap-4 border-t border-ink-line pt-4 md:flex-row md:items-center">
           <p className="font-mono text-[10px] uppercase tracking-widest text-ash">
             {/* © {new Date().getFullYear()} KYNYX — Digital Technology Agency */}
-            © 2025 KYNYX — Digital Technology Agency
+            © 2025 Kynyx Solutions LLC
           </p>
 
           <div className="flex items-center gap-3">
