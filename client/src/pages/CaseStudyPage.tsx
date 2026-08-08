@@ -80,10 +80,10 @@ export default function CaseStudyPage() {
       </section>
 
       {/* Quick facts */}
-      <section className="border-b border-ink-line bg-ink-deep" aria-label="Project facts">
+      <section className="border-b border-ink-line" aria-label="Project facts">
         <div className="mx-auto grid max-w-shell grid-cols-2 gap-px bg-ink-line lg:grid-cols-4">
           {project.metrics.map((m) => (
-            <div key={m.label} className="bg-ink-deep px-6 py-8 md:px-10">
+            <div key={m.label} className="px-6 py-8 md:px-10">
               <p className="font-mono text-[10px] uppercase tracking-widest text-ash">{m.label}</p>
               <p className="mt-2 font-display text-2xl font-semibold text-mist">{m.value}</p>
             </div>
@@ -128,7 +128,7 @@ export default function CaseStudyPage() {
       </section>
 
       {/* Design & development process */}
-      <section className="border-y border-ink-line bg-ink-deep py-20 md:py-28" aria-label="Process">
+      <section className="border-y border-ink-line py-20 md:py-28" aria-label="Process">
         <div className="mx-auto max-w-shell px-5 md:px-8 lg:px-12">
           <p className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-widest text-signal">
             <span className="h-px w-8 bg-signal/70" aria-hidden="true" />
@@ -187,7 +187,7 @@ export default function CaseStudyPage() {
       </section>
 
       {/* Results + stats */}
-      <section className="border-y border-ink-line bg-ink-deep py-20 md:py-28" aria-label="Results">
+      <section className="border-y border-ink-line py-20 md:py-28" aria-label="Results">
         <div className="mx-auto max-w-shell px-5 md:px-8 lg:px-12">
           <div className="grid items-end gap-10 lg:grid-cols-2">
             <div>

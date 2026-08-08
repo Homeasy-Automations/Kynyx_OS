@@ -1,22 +1,21 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowDown } from 'lucide-react';
 import { EASE, fadeUp, stagger } from '../../animations/variants';
-import { FloatingAIField } from '../../components/effects/FloatingAIField';
-import { ParticleField } from '../../components/effects/ParticleField';
 import { Button } from '../../components/ui/Button';
 import { WordReveal } from '../../components/ui/WordReveal';
-import { useAppReady } from '../../context/AppReadyContext';
-import { usePrefersReducedMotion } from '../../hooks/usePrefersReducedMotion';
 
 /**
- * Hero — 100vh. Particle constellation, floating AI/data motif, oversized
- * headline and a sequenced entrance:
+ * Hero — 100vh. Oversized headline and a sequenced entrance:
  * 1 navbar (handled by AppShell) 2 headline words 3 description 4 CTAs
- * 5 background activates 6 scroll indicator.
+ * 5 scroll indicator.
+ *
+ * The grid lines, gradient glow, particle constellation and floating
+ * AI/data motif used to live here, scoped to just this section. They now
+ * live in <AmbientBackground /> (mounted in AppShell, fixed to the
+ * viewport, home route only) so the same background runs behind every
+ * section on the page instead of scrolling away after the hero.
  */
 export function Hero() {
-  const reduced = usePrefersReducedMotion();
-  const ready = useAppReady();
   const { scrollY } = useScroll();
   const yFg = useTransform(scrollY, [0, 600], [0, 120]);
   const opacity = useTransform(scrollY, [0, 500], [1, 0]);
@@ -26,23 +25,6 @@ export function Hero() {
       className="relative flex min-h-screen items-center overflow-hidden"
       aria-label="Introduction"
     >
-      {/* Background layers */}
-      <div className="absolute inset-0 bg-grid-lines bg-[size:72px_72px] [mask-image:radial-gradient(ellipse_75%_70%_at_50%_40%,black,transparent)]" aria-hidden="true" />
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            'radial-gradient(ellipse 60% 50% at 70% 20%, rgba(198,255,62,0.07), transparent 60%), radial-gradient(ellipse 50% 40% at 20% 80%, rgba(110,168,255,0.05), transparent 60%)',
-        }}
-        aria-hidden="true"
-      />
-      <ParticleField className="absolute inset-0 h-full w-full opacity-70" />
-
-      {/* Free-floating AI/data motif — drifts on its own, recoils from the cursor.
-          Gated on `ready` (loader finished) so its entrance plays visibly on first
-          load too, instead of running out unseen underneath the loader. */}
-      {!reduced && ready && <FloatingAIField />}
-
       {/* Content */}
       <motion.div
         style={{ y: yFg, opacity }}

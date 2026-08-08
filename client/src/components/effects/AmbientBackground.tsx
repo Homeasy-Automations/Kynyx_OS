@@ -6,18 +6,33 @@ import { usePrefersReducedMotion } from '../../hooks/usePrefersReducedMotion';
 /**
  * Site-wide ambient background — grid lines, gradient glow, particle
  * constellation and the floating AI/data motif. Originally lived inside the
- * homepage Hero section; moved here (mounted once in AppShell, outside the
- * routed page tree) so it stays fixed to the viewport and keeps running
- * across every page and every route change, instead of unmounting whenever
- * you navigate away from "/". None of the pieces below were changed —
- * same grid, same gradient, same ParticleField/FloatingAIField components.
+ * homepage Hero section only, so it scrolled away with the hero and
+ * unmounted every time that section left the viewport; then it was scoped
+ * to the home route only.
+ *
+ * Now mounted once in AppShell, outside the routed/animated page tree, and
+ * rendered on every route — so it stays truly `fixed` to the viewport (a
+ * transformed page-transition ancestor would otherwise break `fixed`) and
+ * keeps running behind every page and every section as you scroll or
+ * navigate, instead of restarting per route. None of the pieces below were
+ * changed — same grid, same gradient, same ParticleField/FloatingAIField
+ * components.
+ *
+ * z-index note: this uses `z-0`, not a negative z-index. AppShell's outer
+ * wrapper is `position: relative` without its own z-index, which means the
+ * wrapper doesn't establish a stacking context — its own background paints
+ * in a later stacking step than a `fixed` + negative-z-index child, so a
+ * negative z-index here would end up hidden behind that wrapper's own
+ * background. `z-0` + explicit `z-10` on the main content/footer (see
+ * AppShell.tsx / Footer.tsx) keeps the layering unambiguous: ambient below,
+ * page content and footer above, navbar/loader/cursor further above that.
  */
 export function AmbientBackground() {
   const reduced = usePrefersReducedMotion();
   const ready = useAppReady();
 
   return (
-    <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden" aria-hidden="true">
+    <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden" aria-hidden="true">
       <div className="absolute inset-0 bg-grid-lines bg-[size:72px_72px] [mask-image:radial-gradient(ellipse_75%_70%_at_50%_40%,black,transparent)]" />
       <div
         className="absolute inset-0"

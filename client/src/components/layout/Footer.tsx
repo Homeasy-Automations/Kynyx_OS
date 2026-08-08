@@ -32,7 +32,7 @@ const SOCIAL_ICONS: Record<string, IconType> = {
  */
 export function Footer() {
   return (
-    <footer className="relative overflow-hidden border-t border-ink-line bg-ink-deep">
+    <footer className="relative z-10 overflow-hidden border-t border-ink-line bg-ink-deep">
       <div className="mx-auto max-w-shell px-5 pb-10 pt-10 md:px-8 lg:px-12">
         {/* Top row */}
         <div className="grid gap-14 lg:grid-cols-12">

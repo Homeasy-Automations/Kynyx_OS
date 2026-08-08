@@ -123,7 +123,7 @@ export default function InsightDetailPage() {
 
       {/* Related */}
       {related.length > 0 && (
-        <section className="border-t border-ink-line bg-ink-deep py-16 md:py-24" aria-label="Related insights">
+        <section className="border-t border-ink-line py-16 md:py-24" aria-label="Related insights">
           <div className="mx-auto max-w-shell px-5 md:px-8 lg:px-12">
             <h2 className="font-display text-2xl font-semibold text-mist md:text-3xl">Keep reading</h2>
             <div className="mt-10 grid gap-6 md:grid-cols-2">

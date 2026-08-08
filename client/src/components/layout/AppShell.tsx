@@ -3,6 +3,7 @@ import { lazy, Suspense, useEffect, useState } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import { pageVariants } from '../../animations/variants';
 import { AppReadyProvider } from '../../context/AppReadyContext';
+import { AmbientBackground } from '../effects/AmbientBackground';
 import { CustomCursor } from '../effects/CustomCursor';
 import { Loader } from '../effects/Loader';
 import { Footer } from './Footer';
@@ -53,7 +54,16 @@ export function AppShell() {
 
   return (
     <AppReadyProvider value={!loading}>
-      <div className="grain relative min-h-screen bg-ink">
+      <div className="grain relative min-h-screen">
+        {/* Viewport-fixed ambient layer (z-0), rendered on every route.
+            Placed here (outside the route-transition motion.div) so it
+            stays truly `fixed` to the viewport — a transformed/blurred
+            ancestor would otherwise turn `fixed` into "fixed relative to
+            that ancestor" and it would scroll away with the page. Mounted
+            once at the shell level so it also survives route changes
+            without unmounting/remounting or restarting its animation. */}
+        <AmbientBackground />
+
         <AnimatePresence>{loading && <Loader key="loader" onDone={handleLoaderDone} />}</AnimatePresence>
 
         <ScrollToTop />
@@ -62,7 +72,7 @@ export function AppShell() {
         <Navbar onMenuOpen={() => setMenuOpen(true)} />
         <MobileMenu open={menuOpen} onClose={() => setMenuOpen(false)} />
 
-        <main id="main">
+        <main id="main" className="relative z-10">
           <AnimatePresence mode="wait" initial={false}>
             <motion.div
               key={location.pathname}

@@ -76,7 +76,7 @@ export default function AboutPage() {
       </section>
 
       {/* Principles */}
-      <section className="border-y border-ink-line bg-ink-deep py-20 md:py-28" aria-label="Principles">
+      <section className="border-y border-ink-line py-20 md:py-28" aria-label="Principles">
         <div className="mx-auto max-w-shell px-5 md:px-8 lg:px-12">
           <SectionHeading eyebrow="Principles" title="How we think." />
           <motion.div

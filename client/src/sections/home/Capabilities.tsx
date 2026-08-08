@@ -9,7 +9,7 @@ import { CAPABILITIES, MARQUEE_TECH } from '../../data/site';
  */
 export function Capabilities() {
   return (
-    <section className="relative border-y border-ink-line bg-ink-deep py-28 md:py-36" aria-label="Capabilities">
+    <section className="relative border-y border-ink-line py-28 md:py-36" aria-label="Capabilities">
       <Marquee items={MARQUEE_TECH} className="mb-24 border-b border-ink-line pb-14 opacity-80" />
 
       <div className="mx-auto max-w-shell px-5 md:px-8 lg:px-12">

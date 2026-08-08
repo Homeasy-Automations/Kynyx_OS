@@ -8,10 +8,10 @@ import { STATS } from '../../data/site';
  */
 export function StatsSection() {
   return (
-    <section className="border-y border-ink-line bg-ink-deep" aria-label="Company statistics">
+    <section className="border-y border-ink-line" aria-label="Company statistics">
       <div className="mx-auto grid max-w-shell grid-cols-2 gap-px bg-ink-line lg:grid-cols-4">
         {STATS.map((stat, i) => (
-          <Reveal key={stat.label} delay={i} className="bg-ink-deep">
+          <Reveal key={stat.label} delay={i}>
             <div className="flex flex-col gap-4 px-6 py-14 md:px-10 md:py-20">
               <Counter
                 value={stat.value}

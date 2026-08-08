@@ -16,7 +16,7 @@ export function ProcessSection() {
   const progress = useSpring(scrollYProgress, { stiffness: 90, damping: 24 });
 
   return (
-    <section ref={ref} className="relative border-y border-ink-line bg-ink-deep py-28 md:py-36" aria-label="Our process">
+    <section ref={ref} className="relative border-y border-ink-line py-28 md:py-36" aria-label="Our process">
       <div className="mx-auto max-w-shell px-5 md:px-8 lg:px-12">
         <SectionHeading
           eyebrow="Process"

@@ -34,7 +34,7 @@ export function TestimonialsSection() {
   };
 
   return (
-    <section className="relative overflow-hidden border-y border-ink-line bg-ink-deep py-28 md:py-36" aria-label="Client testimonials">
+    <section className="relative overflow-hidden border-y border-ink-line py-28 md:py-36" aria-label="Client testimonials">
       <div className="mx-auto max-w-shell px-5 md:px-8 lg:px-12">
         <div className="flex flex-wrap items-end justify-between gap-8">
           <SectionHeading eyebrow="Testimonials" title="Clients say it better than we can." />
