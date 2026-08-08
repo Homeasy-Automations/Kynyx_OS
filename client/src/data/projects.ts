@@ -189,7 +189,7 @@ export const projects: Project[] = [
       { label: 'Team', value: 'TBD' },
       { label: 'Platform', value: 'Web' },
     ],
-    liveUrl: 'https://bharatxventures.com/',
+    liveUrl: 'https://bharatx.vc/',
   },
   {
     slug: 'bharatx-infratech',
