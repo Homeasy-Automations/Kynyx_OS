@@ -38,7 +38,7 @@ export function Footer() {
         <div className="grid gap-14 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <Logo />
-            <p className="mt-6 max-w-sm font-display text-2xl font-medium leading-snug tracking-tight text-mist md:text-3xl">
+            <p className="mt-5 max-w-sm font-display text-2xl font-medium leading-snug tracking-tight text-mist md:text-3xl">
               Engineering what&rsquo;s next.
             </p>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-ash">
@@ -99,7 +99,7 @@ export function Footer() {
         </div>
 
         {/* Offices */}
-        <div className="mt-8 border-t border-ink-line pt-6">
+        <div className="mt-6 border-t border-ink-line pt-6">
           <FooterColumnTitle>Offices</FooterColumnTitle>
           <div className="mt-6 grid gap-10 sm:grid-cols-3 sm:divide-x sm:divide-ink-line">
             {OFFICE_LOCATIONS.map((office) => (
@@ -124,7 +124,7 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-6 flex flex-col items-start justify-between gap-4 border-t border-ink-line pt-4 md:flex-row md:items-center">
+        <div className="mt-5 flex flex-col items-start justify-between gap-4 border-t border-ink-line pt-4 md:flex-row md:items-center">
           <p className="font-mono text-[10px] uppercase tracking-widest text-ash">
             {/* © {new Date().getFullYear()} KYNYX — Digital Technology Agency */}
             © 2025 KYNYX — Digital Technology Agency
