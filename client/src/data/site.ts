@@ -70,22 +70,22 @@ export interface OfficeLocation {
 
 export const OFFICE_LOCATIONS: OfficeLocation[] = [
   {
-    city: 'Delhi',
+    city: 'USA',
+    country: 'United States',
+    address: 'Kynyx Solutions LLC 8 The Green, Suite A Dover, DE 19901 United States', // PLACEHOLDER
+    phone: '+1 (239) 450-6273', // PLACEHOLDER
+  },
+  {
+    city: 'Noida',
     country: 'India',
-    address: 'B-42, Connaught Place, New Delhi 110001, India', // PLACEHOLDER
-    phone: '+91 98765 43210', // PLACEHOLDER
+    address: '9th floor, logix Cyber Park, Tower-C, Sec-62, Noida, U.P 201309, India', // PLACEHOLDER
+    phone: '+91 72097 03999', // PLACEHOLDER
   },
   {
     city: 'Patna',
     country: 'India',
-    address: '3rd Floor, Boring Road, Patna 800001, Bihar, India', // PLACEHOLDER
-    phone: '+91 91234 56789', // PLACEHOLDER
-  },
-  {
-    city: 'USA',
-    country: 'United States',
-    address: '440 N Wolfe Rd, Sunnyvale, CA 94085, USA', // PLACEHOLDER
-    phone: '+1 (415) 555-0142', // PLACEHOLDER
+    address: '5th Floor, Mauryalok Complex, A-Block, Patna 800001, Bihar, India', // PLACEHOLDER
+    phone: '+91 62000 75073', // PLACEHOLDER
   },
 ];
 

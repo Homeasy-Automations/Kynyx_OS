@@ -42,19 +42,23 @@ export async function sendInquiryEmails(
   const results = { internal: false, customer: false };
 
   try {
-    await resend.emails.send({
+    const { error } = await resend.emails.send({
       from: env.resendFromEmail,
       to: [env.contactReceiverEmail],
       subject: `New Project Inquiry — ${input.name} (${referenceId})`,
       text: formatInquiry(input, referenceId),
     });
-    results.internal = true;
+    if (error) {
+      console.error('[email] internal notification rejected by Resend:', error.message);
+    } else {
+      results.internal = true;
+    }
   } catch (err) {
     console.error('[email] internal notification failed:', err instanceof Error ? err.message : err);
   }
 
   try {
-    await resend.emails.send({
+    const { error } = await resend.emails.send({
       from: env.resendFromEmail,
       to: [input.email],
       subject: 'Thanks for reaching out to KYNYX',
@@ -70,7 +74,11 @@ export async function sendInquiryEmails(
         '— KYNYX',
       ].join('\n'),
     });
-    results.customer = true;
+    if (error) {
+      console.error('[email] customer confirmation rejected by Resend:', error.message);
+    } else {
+      results.customer = true;
+    }
   } catch (err) {
     console.error('[email] customer confirmation failed:', err instanceof Error ? err.message : err);
   }
