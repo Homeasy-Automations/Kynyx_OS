@@ -101,6 +101,36 @@ body {
     -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
     mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
   }
+
+  /* Cursor-tracked radial glow — used on cards for a premium hover feel.
+     Pair with the useSpotlight hook, which sets --spot-x/--spot-y on
+     mousemove. Falls back to a centered glow if the vars are unset. */
+  .spotlight {
+    position: relative;
+    isolation: isolate;
+  }
+  .spotlight::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    opacity: 0;
+    background: radial-gradient(
+      380px circle at var(--spot-x, 50%) var(--spot-y, 50%),
+      rgba(198, 255, 62, 0.1),
+      transparent 70%
+    );
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+  }
+  .spotlight:hover::before {
+    opacity: 1;
+  }
+  @media (hover: none) {
+    .spotlight::before {
+      display: none;
+    }
+  }
 }
 
 /* ------------------------------------------------------------------ */

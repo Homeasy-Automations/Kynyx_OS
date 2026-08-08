@@ -73,7 +73,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
               <Link
                 to={link.to}
                 onClick={onClose}
-                className="group flex items-center justify-between border-b border-ink-line py-4"
+                className="group flex items-center justify-between border-b border-ink-line py-4 transition-transform duration-150 active:scale-[0.98]"
               >
                 <span className="font-display text-4xl font-semibold tracking-tight text-mist transition-colors group-hover:text-signal">
                   {link.label}

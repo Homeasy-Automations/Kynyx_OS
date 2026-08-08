@@ -9,6 +9,7 @@ import { Footer } from './Footer';
 import { MobileMenu } from './MobileMenu';
 import { Navbar } from './Navbar';
 import { PageFallback } from './PageFallback';
+import { RouteTransitionBar } from './RouteTransitionBar';
 import { ScrollToTop } from './ScrollToTop';
 
 /* Route-level code splitting — pages load on demand. */
@@ -57,6 +58,7 @@ export function AppShell() {
 
         <ScrollToTop />
         <CustomCursor />
+        <RouteTransitionBar routeKey={location.pathname} />
         <Navbar onMenuOpen={() => setMenuOpen(true)} />
         <MobileMenu open={menuOpen} onClose={() => setMenuOpen(false)} />
 

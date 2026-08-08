@@ -18,6 +18,8 @@ export function BackToTop() {
           initial={{ opacity: 0, y: 16, scale: 0.9 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 16, scale: 0.9 }}
+          whileHover={{ scale: 1.08 }}
+          whileTap={{ scale: 0.9 }}
           transition={{ duration: 0.25 }}
           aria-label="Back to top"
           className="fixed bottom-8 right-6 z-40 flex h-12 w-12 items-center justify-center rounded-full border border-ink-line bg-ink-raised text-mist shadow-card transition-colors duration-300 hover:border-signal hover:text-signal md:right-10"

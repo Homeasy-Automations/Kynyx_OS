@@ -1,6 +1,7 @@
 import { ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import type { Insight } from '../../types';
+import { useSpotlight } from '../../hooks/useSpotlight';
 import { cn, formatDate, readingTime } from '../../utils';
 import { InsightCover } from '../visuals/InsightCover';
 
@@ -15,12 +16,15 @@ interface InsightCardProps {
  * text laid over it. Used everywhere an insight is previewed. */
 export function InsightCard({ insight, index, featured = false, className }: InsightCardProps) {
   const words = insight.body.join(' ').split(' ').length;
+  const { ref, onMouseMove } = useSpotlight<HTMLAnchorElement>();
 
   return (
     <Link
+      ref={ref}
+      onMouseMove={onMouseMove}
       to={`/insights/${insight.slug}`}
       className={cn(
-        'group relative flex h-full min-h-[22rem] flex-col justify-between overflow-hidden rounded-2xl border border-ink-line shadow-card transition-all duration-500 hover:-translate-y-1 hover:border-signal/40 hover:shadow-glow',
+        'spotlight group relative flex h-full min-h-[22rem] flex-col justify-between overflow-hidden rounded-2xl border border-ink-line shadow-card transition-all duration-500 hover:-translate-y-1 hover:border-signal/40 hover:shadow-glow active:scale-[0.99]',
         className,
       )}
     >

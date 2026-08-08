@@ -121,7 +121,7 @@ function ServiceRow({
     >
       <Link
         to={`/services/${service.slug}`}
-        className="group relative block px-1 py-10 md:px-4 md:py-12"
+        className="group relative block px-1 py-10 transition-transform duration-150 active:scale-[0.995] md:px-4 md:py-12"
         aria-label={`${service.name} — view service`}
       >
         <div className="flex items-start justify-between gap-6">

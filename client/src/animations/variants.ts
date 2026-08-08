@@ -70,7 +70,17 @@ export const scaleIn: Variants = {
 
 /** Page enter/exit used by PageTransition. */
 export const pageVariants: Variants = {
-  initial: { opacity: 0 },
-  enter: { opacity: 1, transition: { duration: 0.45, ease: 'easeOut' } },
-  exit: { opacity: 0, transition: { duration: 0.28, ease: 'easeIn' } },
+  initial: { opacity: 0, y: 14, filter: 'blur(4px)' },
+  enter: {
+    opacity: 1,
+    y: 0,
+    filter: 'blur(0px)',
+    transition: { duration: 0.55, ease: EASE },
+  },
+  exit: {
+    opacity: 0,
+    y: -10,
+    filter: 'blur(4px)',
+    transition: { duration: 0.3, ease: 'easeIn' },
+  },
 };

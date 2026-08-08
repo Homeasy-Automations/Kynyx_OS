@@ -103,6 +103,8 @@ export function Button({
     <motion.span
       ref={ref}
       style={reduced ? undefined : { x: sx, y: sy }}
+      whileTap={reduced ? undefined : { scale: 0.94 }}
+      transition={{ type: 'spring', stiffness: 400, damping: 20 }}
       className="contents"
     >
       {inner}
