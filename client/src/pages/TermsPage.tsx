@@ -90,7 +90,7 @@ export default function TermsPage() {
             <span className="text-signal">of Use</span>
           </>
         }
-        description="The straightforward rules for browsing kynyx.agency."
+        description="The straightforward rules for browsing kynyx.com."
       >
         <LegalHeroBadges
           badges={[

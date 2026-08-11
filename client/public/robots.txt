@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://kynyx.agency/sitemap.xml
+Sitemap: https://kynyx.com/sitemap.xml
