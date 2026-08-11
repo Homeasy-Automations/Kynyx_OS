@@ -12,6 +12,7 @@ import { Navbar } from './Navbar';
 import { PageFallback } from './PageFallback';
 import { RouteTransitionBar } from './RouteTransitionBar';
 import { ScrollToTop } from './ScrollToTop';
+import ReactGA from 'react-ga4';
 
 /* Route-level code splitting — pages load on demand. */
 const HomePage = lazy(() => import('../../pages/HomePage'));
@@ -34,6 +35,20 @@ const NotFoundPage = lazy(() => import('../../pages/NotFoundPage'));
  * Routes are keyed by location.pathname inside AnimatePresence so every
  * navigation runs a ~600ms enter/exit transition.
  */
+
+function AnalyticsTracker() {
+  const location = useLocation();
+
+  useEffect(() => {
+    ReactGA.send({
+      hitType: 'pageview',
+      page: location.pathname + location.search,
+    });
+  }, [location.pathname, location.search]);
+
+  return null;
+}
+
 export function AppShell() {
   const location = useLocation();
   const [loading, setLoading] = useState(true);
@@ -54,6 +69,7 @@ export function AppShell() {
 
   return (
     <AppReadyProvider value={!loading}>
+      <AnalyticsTracker />
       <div className="grain relative min-h-screen">
         {/* Viewport-fixed ambient layer (z-0), rendered on every route.
             Placed here (outside the route-transition motion.div) so it
