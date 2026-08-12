@@ -13,7 +13,7 @@ export const env = {
   trustProxy: Number(process.env.TRUST_PROXY ?? 1),
   mongoUri: process.env.MONGODB_URI ?? '',
   resendApiKey: process.env.RESEND_API_KEY ?? '',
-  resendFromEmail: process.env.RESEND_FROM_EMAIL ?? 'KYNYX SOLUTIONS<noreply@kynyx.com>',
+  resendFromEmail: process.env.RESEND_FROM_EMAIL ?? 'KYNYX SOLUTIONS',
   contactReceiverEmail: process.env.CONTACT_RECEIVER_EMAIL ?? 'info@kynyx.com',
   clientUrl: process.env.CLIENT_URL ?? 'https://kynyxos.vercel.app',
   nodeEnv: process.env.NODE_ENV ?? 'development',
