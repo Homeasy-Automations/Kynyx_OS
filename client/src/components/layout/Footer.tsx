@@ -178,18 +178,38 @@ function FooterColumnTitle({ children }: { children: React.ReactNode }) {
 }
 
 function FooterLink({ to, label }: { to: string; label: string }) {
+  // /landing-page is a standalone static HTML page (Kynyx Devs), not an SPA
+  // route, so it needs a real browser navigation rather than client-side
+  // routing (which would just soft-navigate and hit the 404 page).
+  const isStaticPage = to === '/landing-page';
+
+  const content = (
+    <>
+      {label}
+      <ArrowUpRight
+        className="h-3 w-3 opacity-0 transition-all duration-300 group-hover:translate-x-0.5 group-hover:opacity-100"
+        aria-hidden="true"
+      />
+    </>
+  );
+
   return (
     <li>
-      <Link
-        to={to}
-        className="group inline-flex items-center gap-1.5 text-sm text-mist/70 transition-colors hover:text-signal"
-      >
-        {label}
-        <ArrowUpRight
-          className="h-3 w-3 opacity-0 transition-all duration-300 group-hover:translate-x-0.5 group-hover:opacity-100"
-          aria-hidden="true"
-        />
-      </Link>
+      {isStaticPage ? (
+        <a
+          href={to}
+          className="group inline-flex items-center gap-1.5 text-sm text-mist/70 transition-colors hover:text-signal"
+        >
+          {content}
+        </a>
+      ) : (
+        <Link
+          to={to}
+          className="group inline-flex items-center gap-1.5 text-sm text-mist/70 transition-colors hover:text-signal"
+        >
+          {content}
+        </Link>
+      )}
     </li>
   );
 }

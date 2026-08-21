@@ -1,5 +1,6 @@
 {
   "rewrites": [
+    { "source": "/landing-page", "destination": "/kynyx-devs.html" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }

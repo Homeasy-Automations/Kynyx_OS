@@ -26,6 +26,7 @@ export const FOOTER_LINKS: NavLink[] = [
   { label: 'About', to: '/about' },
   { label: 'Insights', to: '/insights' },
   { label: 'Contact', to: '/contact' },
+  { label: 'Kynyx Devs', to: '/landing-page' },
 ];
 
 export const FOOTER_SERVICES: NavLink[] = [
